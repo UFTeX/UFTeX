@@ -47,7 +47,7 @@
 \RequirePackage{lastpage}
 % --------------- Fornece comandos extras para melhorar a qualidade das tabelas
 \RequirePackage{booktabs}
-% --------------- Conjunto de construção de fontes virtual, a partir das fontes CM Padrão
+
 \RequirePackage{lmodern}
 % --------------- Utilização de subfiguras
 \RequirePackage{subfigure}
