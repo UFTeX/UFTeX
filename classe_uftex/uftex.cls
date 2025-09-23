@@ -838,9 +838,13 @@ xrightmargin=10pt
 % ------------------------------------------------------------------------------------------------------ %
 \DeclareOption{latosensu}{
 
-  \renewcommand{\@degreename}{Especialização}
-  \renewcommand{\local@degname}{Especialista}
-  \renewcommand{\foreign@degname}{Specialist}
+  \newcommand{\@degree}{Esp.}
+  \newcommand{\@projecttype}{Plano de Trabalho}
+  \newcommand{\@degreename}{Especialização}
+  \newcommand{\local@degname}{Especialista}
+  \newcommand{\foreign@degname}{Specialist}
+  \newcommand\local@doctype{Monografia}
+  \newcommand\foreign@doctype{Monograph}
   \newcommand{\local@program}{Pós-Graduação \textit{Lato Sensu}}
 
 \renewcommand\approvepage@maintext{
