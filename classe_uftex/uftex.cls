@@ -263,6 +263,9 @@ xrightmargin=10pt
   \ifthenelse{\equal{#1}{SAD}}
     {\global\def\local@deptname{Sistemas de Apoio à Decisão}
      \global\def\foreign@deptname{Decision Support Systems}}{}
+  \ifthenelse{\equal{#1}{PPGGTD}}
+	{\global\def\local@deptname{Governança e Transformação Digital}
+	\global\def\foreign@deptname{Governance and Digital Transformation}}{}
 }
 % ------------------------------------------------------------------------------------------------------ %
 \renewcommand\title[1]{%
@@ -892,6 +895,231 @@ xrightmargin=10pt
 }
 % ------------------------------------------------------------------------------------------------------ %
 % Fim Lato Sensu
+% ------------------------------------------------------------------------------------------------------ %
+
+% ------------------------------------------------------------------------------------------------------ %
+% Inicio Qualificação de Mestrado
+% ------------------------------------------------------------------------------------------------------ %
+\DeclareOption{mscqualify}{
+	
+	\newcommand{\@degree}{MSc.}
+	\newcommand{\@projecttype}{Projeto de Qualificação}
+	\newcommand{\@degreename}{Mestrado}
+	\newcommand{\local@degname}{Mestre}
+	\newcommand{\foreign@degname}{Master of Science}
+	\newcommand\local@doctype{Projeto de Qualificação}
+	\newcommand\foreign@doctype{Qualify}
+	\newcommand{\local@program}{Programa de Pós-Graduação}
+	
+%
+	\renewcommand\frontpage@maintext{
+		\sloppy\nohyphens{\local@doctype\ apresentado ao \local@program\ em \local@deptname\ da \local@universityname\ como requisito parcial para obten{\c c}{\~ a}o do  título de \local@degname\ em \local@deptname, sob a orienta\c{c}\~ao  do(a) Prof.(a) 
+			\nohyphens{%
+				\count1=0
+				\@whilenum \count1<\@advisor \do{%
+					\ifcase\count1 % same as \ifnum0=\count1
+					\csname uftAdvisorDegree:\the\count1 \endcsname \ 
+					\csname uftAdvisorName:\the\count1 \endcsname \ 
+					\csname uftAdvisorSurname:\the\count1 \endcsname . \par
+					\fi
+					\advance\count1 by 1}
+			}
+			
+			\vspace{1.5cm}
+			\nohyphens{%
+				\count1=0
+				\@whilenum \count1<\@advisor \do{%
+					\ifcase\count1 % same as \ifnum0=\count1
+					\local@advisorstring : \csname uftAdvisorDegree:\the\count1 \endcsname \ 
+					\csname uftAdvisorName:\the\count1 \endcsname \ 
+					\csname uftAdvisorSurname:\the\count1 \endcsname \ \par
+					\else
+					\local@coadvisorstring : \csname uftAdvisorDegree:\the\count1 \endcsname \ 
+					\csname uftAdvisorName:\the\count1 \endcsname \ 
+					\csname uftAdvisorSurname:\the\count1 \endcsname \ \par
+					\fi
+					\advance\count1 by 1}
+			} \par
+		}
+	}
+	\renewcommand\approvepage@maintext{
+	\local@doctype\ apresentado ao programa de  \local@program\ em \local@deptname\ da UFT -- \local@universityname\ -- Câmpus Universitário de \local@cityname, para avaliação pela banca examinadora.
+}
+
+\renewcommand\frontcover@maintext{
+	\sloppy\nohyphens{\local@universityname \par
+		Câmpus Universitário de Palmas\par
+		\local@program\ em \local@deptname}
+}
+
+% ------------------------------------------------------------------------------------------------------ 	
+}
+% ------------------------------------------------------------------------------------------------------ %
+% Fim Msc Qualificação
+% ------------------------------------------------------------------------------------------------------ %
+
+% ------------------------------------------------------------------------------------------------------ %
+% Inicio Qualificação de Doutorado
+% ------------------------------------------------------------------------------------------------------ %
+\DeclareOption{dscqualify}{
+	
+	\newcommand{\@degree}{DSc.}
+	\newcommand{\@projecttype}{Projeto de Qualificação}
+	\newcommand{\@degreename}{Doutorado}
+	\newcommand{\local@degname}{Doutor}
+	\newcommand{\foreign@degname}{Doctor of Science}
+	\newcommand\local@doctype{Projeto de Qualificação}
+	\newcommand\foreign@doctype{Qualify}
+	\newcommand{\local@program}{Programa de Pós-Graduação}
+	
+	%
+	\renewcommand\frontpage@maintext{
+		\sloppy\nohyphens{\local@doctype\ apresentado ao \local@program\ em \local@deptname\ da \local@universityname\ como requisito parcial para obten{\c c}{\~ a}o do  título de \local@degname\ em \local@deptname, sob a orienta\c{c}\~ao  do(a) Prof.(a) 
+			\nohyphens{%
+				\count1=0
+				\@whilenum \count1<\@advisor \do{%
+					\ifcase\count1 % same as \ifnum0=\count1
+					\csname uftAdvisorDegree:\the\count1 \endcsname \ 
+					\csname uftAdvisorName:\the\count1 \endcsname \ 
+					\csname uftAdvisorSurname:\the\count1 \endcsname . \par
+					\fi
+					\advance\count1 by 1}
+			}
+			
+			\vspace{1.5cm}
+			\nohyphens{%
+				\count1=0
+				\@whilenum \count1<\@advisor \do{%
+					\ifcase\count1 % same as \ifnum0=\count1
+					\local@advisorstring : \csname uftAdvisorDegree:\the\count1 \endcsname \ 
+					\csname uftAdvisorName:\the\count1 \endcsname \ 
+					\csname uftAdvisorSurname:\the\count1 \endcsname \ \par
+					\else
+					\local@coadvisorstring : \csname uftAdvisorDegree:\the\count1 \endcsname \ 
+					\csname uftAdvisorName:\the\count1 \endcsname \ 
+					\csname uftAdvisorSurname:\the\count1 \endcsname \ \par
+					\fi
+					\advance\count1 by 1}
+			} \par
+		}
+	}
+	\renewcommand\approvepage@maintext{
+		\local@doctype\ apresentado ao programa de  \local@program\ em \local@deptname\ da UFT -- \local@universityname\ -- Câmpus Universitário de \local@cityname, para avaliação pela banca examinadora.
+	}
+	
+	\renewcommand\frontcover@maintext{
+		\sloppy\nohyphens{\local@universityname \par
+			Câmpus Universitário de Palmas\par
+			\local@program\ em \local@deptname}
+	}
+	
+	% ------------------------------------------------------------------------------------------------------ 	
+}
+% ------------------------------------------------------------------------------------------------------ %
+% Fim Dsc Qualificação
+% ------------------------------------------------------------------------------------------------------ %
+
+
+% ------------------------------------------------------------------------------------------------------ %
+% Inicio Msc Thesis
+% ------------------------------------------------------------------------------------------------------ %
+\DeclareOption{mscthesis}{
+	
+	\newcommand{\@degree}{MSc.}
+	\newcommand{\@projecttype}{Dissertação}
+	\newcommand{\@degreename}{Mestrado}
+	\newcommand{\local@degname}{Mestre(a)}
+	\newcommand{\foreign@degname}{Master of Science}
+	\newcommand\local@doctype{Dissertação}
+	\newcommand\foreign@doctype{Master Thesis}
+	\newcommand{\local@program}{Programa de Pós-Graduação}
+	
+	%
+	\renewcommand\frontpage@maintext{
+		\sloppy\nohyphens{\local@doctype\ apresentada ao \local@program\ em \local@deptname\ da \local@universityname\ como requisito para obten{\c c}{\~ a}o do  título de \local@degname\ em \local@deptname.
+			
+			\vspace{1.5cm}
+			\nohyphens{%
+				\count1=0
+				\@whilenum \count1<\@advisor \do{%
+					\ifcase\count1 % same as \ifnum0=\count1
+					\local@advisorstring : \csname uftAdvisorDegree:\the\count1 \endcsname \ 
+					\csname uftAdvisorName:\the\count1 \endcsname \ 
+					\csname uftAdvisorSurname:\the\count1 \endcsname \ \par
+					\else
+					\local@coadvisorstring : \csname uftAdvisorDegree:\the\count1 \endcsname \ 
+					\csname uftAdvisorName:\the\count1 \endcsname \ 
+					\csname uftAdvisorSurname:\the\count1 \endcsname \ \par
+					\fi
+					\advance\count1 by 1}
+			} \par
+		}
+	}
+	\renewcommand\approvepage@maintext{
+		\local@doctype\ apresentada ao  \local@program\ em \local@deptname, foi avaliada para a obtenção do título de \local@degname\ em  \local@deptname\ e aprovada em sua forma final pelo Orientador e pela Banca Examinadora.
+	}
+	
+	\renewcommand\frontcover@maintext{
+		\sloppy\nohyphens{\local@universityname \par
+			Câmpus Universitário de Palmas\par
+			\local@program\ em \local@deptname}
+	}
+	
+	% ------------------------------------------------------------------------------------------------------ 	
+}
+% ------------------------------------------------------------------------------------------------------ %
+% Fim Msc Thesis
+% ------------------------------------------------------------------------------------------------------ %
+
+% ------------------------------------------------------------------------------------------------------ %
+% Inicio Dsc Thesis
+% ------------------------------------------------------------------------------------------------------ %
+\DeclareOption{dscthesis}{
+	
+	\newcommand{\@degree}{DSc.}
+	\newcommand{\@projecttype}{Tese}
+	\newcommand{\@degreename}{Doutorado}
+	\newcommand{\local@degname}{Doutor(a)}
+	\newcommand{\foreign@degname}{Doctor of Science}
+	\newcommand\local@doctype{Tese}
+	\newcommand\foreign@doctype{PhD. Thesis}
+	\newcommand{\local@program}{Programa de Pós-Graduação}
+	
+	%
+	\renewcommand\frontpage@maintext{
+		\sloppy\nohyphens{\local@doctype\ apresentada ao \local@program\ em \local@deptname\ da \local@universityname\ como requisito para obten{\c c}{\~ a}o do  título de \local@degname\ em \local@deptname.
+			
+			\vspace{1.5cm}
+			\nohyphens{%
+				\count1=0
+				\@whilenum \count1<\@advisor \do{%
+					\ifcase\count1 % same as \ifnum0=\count1
+					\local@advisorstring : \csname uftAdvisorDegree:\the\count1 \endcsname \ 
+					\csname uftAdvisorName:\the\count1 \endcsname \ 
+					\csname uftAdvisorSurname:\the\count1 \endcsname \ \par
+					\else
+					\local@coadvisorstring : \csname uftAdvisorDegree:\the\count1 \endcsname \ 
+					\csname uftAdvisorName:\the\count1 \endcsname \ 
+					\csname uftAdvisorSurname:\the\count1 \endcsname \ \par
+					\fi
+					\advance\count1 by 1}
+			} \par
+		}
+	}
+	\renewcommand\approvepage@maintext{
+		\local@doctype\ apresentada ao  \local@program\ em \local@deptname, foi avaliada para a obtenção do título de \local@degname\ em  \local@deptname\ e aprovada em sua forma final pelo Orientador e pela Banca Examinadora.
+	}
+	
+	\renewcommand\frontcover@maintext{
+		\sloppy\nohyphens{\local@universityname \par
+			Câmpus Universitário de Palmas\par
+			\local@program\ em \local@deptname}
+	}
+	
+	% ------------------------------------------------------------------------------------------------------ 	
+}
+% ------------------------------------------------------------------------------------------------------ %
+% Fim Dsc Thesis
 % ------------------------------------------------------------------------------------------------------ %
 
 

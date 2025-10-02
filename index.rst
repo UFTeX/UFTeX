@@ -42,7 +42,15 @@ são eles:
    um pré-projeto do trabalho. Essa opção deve ser utilizada em conjunto
    com a opção ``tcc``, ``tcc1`` ou ``tcc2``.
 -  ``latosensu`` – utilizada para estilização do documento com o rótulo
-   de Pós-Graduação *Latu Senso*.
+   de Pós-Graduação *Lato Sensu*.
+-  ``mscqualify`` – utilizada para estilização do documento de qualificação a nível de mestrado com o rótulo
+   de Pós-Graduação *Stricto Sensu*.
+-  ``dscqualify`` – utilizada para estilização do documento de qualificação a nível de doutorado com o rótulo
+   de Pós-Graduação *Stricto Sensu*.
+-  ``mscthesis`` – utilizada para estilização do documento de dissertação de mestrado com o rótulo
+   de Pós-Graduação *Stricto Sensu*.
+-  ``dscthesis`` – utilizada para estilização do documento de tese de doutorado com o rótulo
+   de Pós-Graduação *Stricto Sensu*.
 
 Você pode especificar a opção de documento escolhida através do
 
