@@ -13,6 +13,14 @@ A classe _uftex_ vem pré-configurada para cinco tipos de documentos distintos, 
 - ```tcc2``` -- devido à mudança de grade do curso e na uma tentativa de generalizar à outros curso o projeto, esse opção cria uma capa formatada e folha de rosto ao documento, com o rótulo de Trabalho de Conclusão de Curso II.
 - ```project``` -- utilizada para estilização do documento para criação de um pré-projeto do trabalho. Essa opção deve ser utilizada em conjunto com a opção ```tcc```, ```tcc1``` ou ```tcc2```.
 - ```latosensu``` -- utilizada para estilização do documento com o rótulo de Pós-Graduação _Latu Senso_.
+-  ```mscqualify``` – utilizada para estilização do documento de qualificação a nível de mestrado com o rótulo
+   de Pós-Graduação *Stricto Sensu*.
+-  ```dscqualify``` – utilizada para estilização do documento de qualificação a nível de doutorado com o rótulo
+   de Pós-Graduação *Stricto Sensu*.
+-  ```mscthesis``` – utilizada para estilização do documento de dissertação de mestrado com o rótulo
+   de Pós-Graduação *Stricto Sensu*.
+-  ```dscthesis``` – utilizada para estilização do documento de tese de doutorado com o rótulo
+   de Pós-Graduação *Stricto Sensu*.
 
 Você pode especificar a opção de documento escolhida através do 
 
