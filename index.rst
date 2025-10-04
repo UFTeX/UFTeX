@@ -117,8 +117,10 @@ co-orientados. Se for escolhida a opção ``report`` não é necessário a
 utilização desse comando. - ``\department{}`` – Quanto ao departamento,
 a princípio estão cadastradas as seguintes abreviaturas: EC (Engenharia
 Civil), EE (Engenharia Elétrica), EA (Engenharia Ambiental), CC (Ciência
-da Computação), AL (Engenharia de Alimentos) e SAD (Sistemas de Apoio à
-Decisão). Você deve especificar o seu departamento usando uma das
+da Computação), AL (Engenharia de Alimentos), SAD (Sistemas de Apoio à Decisão), 
+CD (Ciência de Dados), GGTI (Gestão e Governança de Tecnologia da Informação), 
+IA (Inteligência Aritificial) e PPGGTD (Governança e Transformação Digital).
+Você deve especificar o seu departamento usando uma das
 abreviaturas acima, por exemplo, ``\department{CC}``. - ``\date{}{}`` –
 Este comando é usado para definir o mês e ano da defesa. Por exemplo,
 Janeiro de 2016 deve ser inserido como ``\date{01}{2016}``. -

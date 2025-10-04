@@ -263,6 +263,15 @@ xrightmargin=10pt
   \ifthenelse{\equal{#1}{SAD}}
     {\global\def\local@deptname{Sistemas de Apoio à Decisão}
      \global\def\foreign@deptname{Decision Support Systems}}{}
+  \ifthenelse{\equal{#1}{CD}}
+    {\global\def\local@deptname{Ciência de Dados}
+     \global\def\foreign@deptname{Data Science}}{}
+  \ifthenelse{\equal{#1}{GGTI}}
+    {\global\def\local@deptname{Gestão e Governança de Tecnologia da Informação}
+     \global\def\foreign@deptname{Information Technology Management and Governance}}{}
+  \ifthenelse{\equal{#1}{IA}}
+    {\global\def\local@deptname{Inteligência Artificial}
+     \global\def\foreign@deptname{Artificial Intelligence}}{}
   \ifthenelse{\equal{#1}{PPGGTD}}
 	{\global\def\local@deptname{Governança e Transformação Digital}
 	\global\def\foreign@deptname{Governance and Digital Transformation}}{}
