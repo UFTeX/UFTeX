@@ -2,8 +2,8 @@
 %  X.0.0 - novas funções
 %  0.X.0 - melhorias e / ou evoluções
 %  0.0.X - correção de bugs
-\def\fileversion{v2.2.0}
-\def\filedate{2019/05/09}
+\def\fileversion{v2.3.0}
+\def\filedate{2025/10/04}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass {uftex} %[\filedate\ \fileversion\ Classe personalizada para o curso de Ci\^encia da Computa\c{c}\~ao da UFT - CUP]
 
@@ -257,7 +257,10 @@ xrightmargin=10pt
   \ifthenelse{\equal{#1}{CC}}
     {\global\def\local@deptname{Ci{\^ e}ncia da Computa{\c c}{\~ a}o}
      \global\def\foreign@deptname{Computer Science}}{}
-   \ifthenelse{\equal{#1}{AL}}
+  \ifthenelse{\equal{#1}{LC}}
+    {\global\def\local@deptname{Licenciatura em Computa{\c c}{\~ a}o}
+     \global\def\foreign@deptname{Degree in Computing}}{}
+  \ifthenelse{\equal{#1}{AL}}
     {\global\def\local@deptname{Engenharia de Alimentos}
      \global\def\foreign@deptname{Food Engineering}}{}
   \ifthenelse{\equal{#1}{SAD}}
