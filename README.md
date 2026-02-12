@@ -28,7 +28,7 @@ Você pode especificar a opção de documento escolhida através do
 \documentclass[opções]{uftex}
 ```
 
-> É importante destacar que as opções: **report**, **tcc**, **tcc1** e **tcc2** são conflitantes e não devem ser utilizadas em conjunto.
+> É importante destacar que as opções: **tcc**, **tcc1** e **tcc2** são conflitantes e não devem ser utilizadas em conjunto.
 
 
 ## Estrutura Visual
@@ -43,7 +43,7 @@ Este elemento é automaticamente construído pelo comando ```\maketitle```. A op
 
 Obrigatoriamente, para a construção do elemento capa, devem ser inseridos os seguintes comandos:
 
-- ```\author{}{}``` -- O comando ```\author``` foi redefinido. Aqui, ele leva dois argumentos: o primeiro nome do autor e o sobrenome, por exemplo, \verb+\author{Primeiro nome}{Sobrenome}+. Se a opção escolhida for \verb+report+, mais de um autor poderá ser adicionado ao documento.
+- ```\author{}{}``` -- O comando ```\author``` foi redefinido. Aqui, ele leva dois argumentos: o primeiro nome do autor e o sobrenome, por exemplo, \verb+\author{Primeiro nome}{Sobrenome}+. 
 - ```\title{}``` -- O comando ```\title```  é usados para inserir os títulos de sua monografia em língua materna.
 -  ```latex \foreigntitle{}``` -- O comando ```\foreigntitle``` é utilizado para colocar o título da monografia em língua estrangeira. Utilizado somente para o caso do aluno desejar escrever seu trabalho em outro idioma, por exemplo, em inglês. Caso contrário não é necessário utilizá-lo.
 - ```\advisor{}{}{}{}``` -- Comando utilizado para acrescentar o nome do orientador do trabalho. Ele é dividido em quatro campos: profissão, primeiro nome, sobrenome e titulação, conforme:
@@ -53,11 +53,10 @@ Obrigatoriamente, para a construção do elemento capa, devem ser inseridos os s
 \advisor{Prof.}{Nome do Segundo Orientador}{Sobrenome}{Me.}
 ```
 
-Mais de um orientador pode ser adicionado, para o caso de trabalhos co-orientados. Se for escolhida a opção ```report``` não é necessário a utilização desse comando.
-- ```\department{}``` -- Quanto ao departamento, a princípio estão cadastradas as seguintes abreviaturas: EC (Engenharia Civil), EE (Engenharia Elétrica), EA (Engenharia Ambiental), CC (Ciência da Computação), AL (Engenharia de Alimentos), SAD (Sistemas de Apoio à Decisão), CD (Ciência de Dados), GGTI (Gestão e Governança de Tecnologia da Informação), IA (Inteligência Aritificial) e PPGGTD (Governança e Transformação Digital). Você deve especificar o seu departamento usando uma das abreviaturas acima, por exemplo, ```\department{CC}```.
+Mais de um orientador pode ser adicionado, para o caso de trabalhos co-orientados.
+- ```\department{}``` -- Quanto ao departamento, a princípio estão cadastradas as seguintes abreviaturas: EC (Engenharia Civil), EE (Engenharia Elétrica), EA (Engenharia Ambiental), CC (Ciência da Computação), LC (Licenciatura em Computação), AL (Engenharia de Alimentos), SAD (Sistemas de Apoio à Decisão), CD (Ciência de Dados), GGTI (Gestão e Governança de Tecnologia da Informação), IA (Inteligência Aritificial) e PPGGTD (Governança e Transformação Digital). Você deve especificar o seu departamento usando uma das abreviaturas acima, por exemplo, ```\department{CC}```.
 - ```\date{}{}``` -- Este comando é usado para definir o mês e ano da defesa. Por exemplo, Janeiro de 2016 deve ser inserido como ```\date{01}{2016}```.
 - ```\field{}``` -- Esse comando adiciona os campos da área de pesquisa do trabalho a ser desenvolvido de acordo com a classificação de área da ACM. Esse comando é utilizado somente quando a opção de classe ```project``` for escolhida para elaboração do documento.
-- ```\class{}``` -- Esse comando adiciona o nome de uma disciplina ao cabeçalho da capa. Esse comando é utilizado somente quando a opção de classe ```report``` for escolhida para elaboração do documento e é um campo opcional. A sua não utilização implica somente em não aparecer o nome da disciplina no cabeçalho.
 
 ### Folha de Rosto
 É construída juntamente com a capa.

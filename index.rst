@@ -60,7 +60,7 @@ Você pode especificar a opção de documento escolhida através do
 
 ..
 
-   É importante destacar que as opções: **report**, **tcc**, **tcc1** e
+   É importante destacar que as opções: **tcc**, **tcc1** e
    **tcc2** são conflitantes e não devem ser utilizadas em conjunto.
 
 Estrutura Visual
@@ -93,9 +93,7 @@ inseridos os seguintes comandos:
 
 -  ``\author{}{}`` – O comando ``\author`` foi redefinido. Aqui, ele
    leva dois argumentos: o primeiro nome do autor e o sobrenome, por
-   exemplo, :raw-latex:`\verb+\author{Primeiro nome}{Sobrenome}+`. Se a
-   opção escolhida for :raw-latex:`\verb+report+`, mais de um autor
-   poderá ser adicionado ao documento.
+   exemplo, :raw-latex:`\verb+\author{Primeiro nome}{Sobrenome}+`. 
 -  ``\title{}`` – O comando ``\title`` é usados para inserir os títulos
    de sua monografia em língua materna.
 -  ``latex \foreigntitle{}`` – O comando ``\foreigntitle`` é utilizado
@@ -113,8 +111,7 @@ inseridos os seguintes comandos:
    \advisor{Prof.}{Nome do Segundo Orientador}{Sobrenome}{Me.}
 
 Mais de um orientador pode ser adicionado, para o caso de trabalhos
-co-orientados. Se for escolhida a opção ``report`` não é necessário a
-utilização desse comando. - ``\department{}`` – Quanto ao departamento,
+co-orientados. - ``\department{}`` – Quanto ao departamento,
 a princípio estão cadastradas as seguintes abreviaturas: EC (Engenharia
 Civil), EE (Engenharia Elétrica), EA (Engenharia Ambiental), CC (Ciência
 da Computação), AL (Engenharia de Alimentos), SAD (Sistemas de Apoio à Decisão), 
@@ -127,12 +124,7 @@ Janeiro de 2016 deve ser inserido como ``\date{01}{2016}``. -
 ``\field{}`` – Esse comando adiciona os campos da área de pesquisa do
 trabalho a ser desenvolvido de acordo com a classificação de área da
 ACM. Esse comando é utilizado somente quando a opção de classe
-``project`` for escolhida para elaboração do documento. - ``\class{}`` –
-Esse comando adiciona o nome de uma disciplina ao cabeçalho da capa.
-Esse comando é utilizado somente quando a opção de classe ``report`` for
-escolhida para elaboração do documento e é um campo opcional. A sua não
-utilização implica somente em não aparecer o nome da disciplina no
-cabeçalho.
+``project`` for escolhida para elaboração do documento. 
 
 Folha de Rosto
 --------------
