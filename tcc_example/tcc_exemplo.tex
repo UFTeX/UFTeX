@@ -11,7 +11,7 @@
 % https://almeidatiago.github.io/uftex/
 % ----------------------------------------------------------------------------------------------------- %
 
-\documentclass[tcc2]{uftex}
+\documentclass[tcc1]{uftex}
 % ---- Esse comando cria o nome uftex estilizado
 \newcommand\uftex{UF\TeX}
 
@@ -25,14 +25,15 @@
 \renewcommand{\backref}{}
 \renewcommand*{\backrefalt}[4]{}
 % ----  Esse comandos são necessário no pré-ambulo para a impressão da lista de lista abreviatuas e de símbolos
-\makelosymbols
-\makeloabbreviations
+%\makelosymbols
+%\makeloabbreviations
 % ---- Início do documento
+
 \begin{document}
   % ---- Descrição do título do trabalho 
-  \title{Titulo do trabalho}
+  \title{Análise de Desempenho e Eficiência de Operações Matriciais com Técnicas de Otimização e Computação Aproximada}
   % ---- Nome do autor ou autores do trabalho
-  \author{Autor}{Sobrenome}
+  \author{Vinícius Wanderley}{Arruda}
   % ---- Nome do orientador do trabalho. O último campo representa o título do professor
   \advisor{Prof.}{Tiago}{da Silva Almeida}{Me.}
 
@@ -42,19 +43,19 @@
   % ---- Departamento representa o curso ao qual o trabalho está sendo apresentado. Descrito por meio de duas iniciais do curso
   \department{CC}
   % ---- Data da apresentação do trabalho
-  \date{25}{03}{2016}
+  \date{25}{06}{2025}
   % ---- Palavras-chaves em português do trabalho
-  \keyword{\LaTeX}
-  \keyword{\uftex}
-  \keyword{Trabalho de Conclusão de Curso}
-  \keyword{Redação Científica}
-  \keyword{Extensão Universitária}
+  \keyword{FPGA}
+  \keyword{Divisores}
+  \keyword{Computação Aproximada}
+  \keyword{HDL}
+  \keyword{Eficiência Energética}
   % ---- Palavras-chaves em inglês do trabalho
-  \foreignkeyword{\LaTeX}
-  \foreignkeyword{\uftex}
-  \foreignkeyword{Bachelor Thesis}
-  \foreignkeyword{Scientific Writing}
-  \foreignkeyword{University Extension}
+  \foreignkeyword{FPGA}
+  \foreignkeyword{Dividers}
+  \foreignkeyword{Approximate Computing}
+  \foreignkeyword{HDL}
+  \foreignkeyword{Energy Efficiency}
   
   % ---- Comando responsável por criar a capa do trabalho, logo em seguida está o comando que insere a folha de rosto conforme a configuração exigida
  \maketitle
@@ -65,34 +66,47 @@
   % ----------------------------------------------------------------------------------------------------- %
   %  Este trecho deve ser inserido somente no caso do TCC2 já na versão FINAL
   % ----------------------------------------------------------------------------------------------------- %
-  \includepdf{ficha_catalografica}
+  %\includepdf{ficha_catalografica}
   
   % ----------------------------------------------------------------------------------------------------- %
   % Esse comando insere a Folha de Aprovação
-  \makepageapprove
+  %\makepageapprove
   
   % A Ata de aprovacao nao deve fazer parte do TCC 2, mas deve-se incluir a folha de aprovacao assinada pelos membros da banca
   %\includepdf{ata_de_aprovacao}
   % ----------------------------------------------------------------------------------------------------- %
-  \dedication{A algu\'em cujo valor \'e digno desta dedicat\'oria.}
+  %\dedication{A algu\'em cujo valor \'e digno desta dedicat\'oria.}
 
-  \begin{acknowledgement}
-  Gostaria de agradecer a todos.
-  \end{acknowledgement}
+  % \begin{acknowledgement}
+  % Gostaria de agradecer a todos.
+  % \end{acknowledgement}
 
-  \begin{abstract}
-  \lipsum[1]
-  \end{abstract}
+ \begin{abstract}
+Operações matriciais intensivas, como multiplicação de matrizes e convolução, são amplamente utilizadas em áreas como computação científica, processamento de imagens e aprendizado de máquina. No entanto, o desempenho dessas operações é fortemente limitado pela hierarquia de memória dos sistemas computacionais, especialmente devido à ocorrência de falhas de cache (cache misses), que aumentam significativamente o tempo de execução.
+
+Este trabalho propõe a análise e otimização da multiplicação de matrizes utilizando a abordagem DGEMM (Double Precision General Matrix Multiply) com técnica de bloqueamento (blocking), visando melhorar a localidade de memória e reduzir o número de acessos à memória principal. Além disso, são implementadas e avaliadas operações de convolução de matrizes utilizando diferentes estratégias de alocação de memória, com o objetivo de comparar seus impactos no desempenho computacional.
+
+Os experimentos são conduzidos em linguagem C, permitindo controle de baixo nível sobre memória e fluxo de execução. Métricas de desempenho, como tempo de execução, número de ciclos, instruções executadas e falhas de cache, são coletadas por meio da ferramenta \textit{perf}. Também são analisados os efeitos de diferentes tamanhos de blocos, dimensões de matrizes e distribuições de dados de entrada.
+
+Como extensão, o trabalho prevê a aplicação de técnicas de computação aproximada, visando avaliar possíveis ganhos de desempenho com perda controlada de precisão. Os resultados esperados contribuem para a compreensão do impacto de otimizações algorítmicas e arquiteturais no desempenho de operações matriciais em sistemas modernos.
+\end{abstract}
 
   \begin{foreignabstract}
-  \lipsum[9]
-  \end{foreignabstract}
-  \printlosymbols  
-  \printloabbreviations
+Matrix-intensive operations such as matrix multiplication and convolution are widely used in scientific computing, image processing, and machine learning. However, the performance of these operations is strongly limited by the memory hierarchy of modern computer systems, particularly due to cache misses, which significantly increase execution time.
+
+This work proposes the analysis and optimization of matrix multiplication using the DGEMM (Double Precision General Matrix Multiply) approach with blocking techniques, aiming to improve memory locality and reduce accesses to main memory. Additionally, matrix convolution operations are implemented and evaluated using different memory allocation strategies, in order to compare their impact on computational performance.
+
+The experiments are conducted in the C programming language, allowing low-level control over memory and execution flow. Performance metrics such as execution time, number of cycles, instructions executed, and cache misses are collected using the \textit{perf} tool. The effects of different block sizes, matrix dimensions, and input data distributions are also analyzed.
+
+As an extension, this work includes the application of approximate computing techniques to evaluate potential performance gains with controlled loss of precision. The expected results contribute to a better understanding of the impact of algorithmic and architectural optimizations on matrix operations in modern computing systems.
+\end{foreignabstract}
+  
+  %\printlosymbols  
+  %\printloabbreviations
   % ---- Cria a lista de figuras. OPCIONAL
-  \listoffigures
+  %\listoffigures
   % ---- Cria a lista de tabelas. OPCIONAL
-  \listoftables 
+  %\listoftables 
   % ---- Cria o sumário. OBRIGATÓRIO
   \tableofcontents % sumário
 % --- Marca o inicio dos elementos textuais. Capítulos.
@@ -102,344 +116,144 @@
 % ----------------------------------------------------------------------------------------------------- %
 % Capítulos do trabalho
 % ----------------------------------------------------------------------------------------------------- %
-\ChapterStart{first}{First chapter}
 \chapter{Introdução}
 
-\lipsum[1] \cite{JW82} \symbl{$\phi$}{Definição do Símbolo 1} \symbl{$\Omega$}{Definição do Símbolo 2}
+Operações matriciais desempenham um papel fundamental em diversas áreas da computação, incluindo processamento de imagens, aprendizado de máquina, simulações científicas e computação de alto desempenho. Entre essas operações, destacam-se a multiplicação de matrizes e a convolução, ambas caracterizadas por elevado custo computacional e grande volume de acesso à memória.
 
-\lipsum[2] \cite{MenaChalco08} \abbrev{UFT}{Universidade Federal do Tocantins}\abbrev{CUP}{Campus Universitário de Palmas}
+Apesar do avanço significativo no desempenho dos processadores modernos, o gargalo de desempenho em muitas aplicações permanece relacionado à hierarquia de memória. Em particular, falhas de cache (cache misses) introduzem latências elevadas, uma vez que exigem acesso à memória principal, que é significativamente mais lenta que os níveis de cache. Dessa forma, algoritmos que não exploram adequadamente a localidade espacial e temporal tendem a apresentar desempenho inferior.
 
-\lipsum[3] \cite{alves03:simi}
+A multiplicação de matrizes tradicional apresenta padrões de acesso à memória pouco eficientes, especialmente no acesso às colunas da matriz, o que resulta em um elevado número de falhas de cache. Para mitigar esse problema, técnicas de otimização como o bloqueamento (blocking ou tiling) são utilizadas. Essa abordagem consiste em dividir as matrizes em blocos menores que podem ser mantidos na cache, aumentando a reutilização de dados e reduzindo o custo de acesso à memória.
 
-\section{Foo}
+Nesse contexto, o algoritmo DGEMM (Double Precision General Matrix Multiply) com bloqueamento se destaca como uma estratégia eficiente para melhorar o desempenho da multiplicação de matrizes. Além disso, operações de convolução também apresentam desafios semelhantes relacionados ao acesso à memória, sendo importante analisar diferentes formas de implementação e organização de dados.
 
-\subsection{Bar}
+Diante disso, este trabalho busca responder à seguinte questão de pesquisa:
 
-\citeonline{bobaoglu93:concepts} \lipsum[4]
+\begin{quote}
+Como técnicas de otimização de acesso à memória, como o bloqueamento no DGEMM, impactam o desempenho de operações matriciais, considerando métricas como tempo de execução, número de ciclos, instruções e falhas de cache?
+\end{quote}
 
-\subsubsection{Foo}
+A hipótese nula ($H_{0}$) estabelece que \textit{não há diferença significativa no desempenho entre as diferentes estratégias de implementação das operações matriciais}. A hipótese alternativa ($H_{a}$) afirma que \textit{existem diferenças significativas no desempenho, especialmente associadas ao uso de técnicas de otimização de memória, como o bloqueamento}.
 
-\lipsum[5] \cite{bronevetsky02}
+Este trabalho tem como objetivo analisar operações de multiplicação e convolução de matrizes com o propósito de avaliar o impacto de otimizações de memória no desempenho computacional, com relação à eficiência de execução e comportamento da hierarquia de memória, do ponto de vista da arquitetura de computadores, no contexto de aplicações intensivas em processamento numérico.
 
-\lipsum[6] \cite{garcia01:PhD}
+Além disso, como extensão do estudo, serão investigadas técnicas de computação aproximada, visando explorar o trade-off entre desempenho e precisão, permitindo possíveis reduções no custo computacional com impacto controlado na qualidade dos resultados.
 
-\lipsum[7] \cite{schmidt03:MSc}
 
-\lipsum[8] \cite{alvisi99:analysisCIC}
 
-\chapter{Métodos}
+\chapter{Trabalhos Relacionados e Fundamentação Teórica}
 
-\section{Bar}
+%ainda em refinamento e adição de informações . . .
 
-\lipsum[9] \cite{CORBA:spec}
+Este capítulo apresenta os conceitos fundamentais necessários para a compreensão do trabalho, bem como uma visão geral de estudos relacionados. São abordados tópicos de arquitetura de computadores, operações matriciais, técnicas de otimização de memória e computação aproximada, estabelecendo a base teórica para os experimentos realizados.
 
-\begin{eqnarray}
-f(x) = \left\{
-  \begin{array}{lr}
-    x^2 & : x < 0\\
-    x^3 & : x \ge 0
-  \end{array}
-\right.
-\end{eqnarray}
+\section{Arquitetura de Computadores e Hierarquia de Memória}
 
-\begin{eqnarray}
-f(x) & = \int h(x)\, dx
-\end{eqnarray}
+O desempenho de aplicações computacionais modernas está diretamente relacionado à forma como os dados são acessados na memória. Processadores atuais operam em frequências elevadas, porém o acesso à memória principal (RAM) apresenta latência significativamente maior. Para mitigar esse problema, utiliza-se uma hierarquia de memória composta por múltiplos níveis, incluindo registradores, cache (L1, L2 e L3) e memória principal.
 
-\begin{eqnarray}
-x = a_0 + \frac{1}{a_1 + \frac{1}{a_2 + \frac{1}{a_3 + a_4}}}
-\end{eqnarray}
+A cache é uma memória intermediária de alta velocidade que armazena dados recentemente acessados. Quando a CPU solicita um dado, inicialmente verifica-se sua presença na cache. Caso o dado esteja presente, ocorre um \textit{cache hit}, resultando em acesso rápido. Caso contrário, ocorre um \textit{cache miss}, sendo necessário buscar o dado em níveis mais lentos da hierarquia, o que impacta negativamente o desempenho.
 
-\begin{eqnarray}
-\prod_{1\le i \le n}
-     M_{i,j}
-\end{eqnarray}
+O comportamento da cache é fortemente influenciado pelos princípios de localidade temporal que corresponde a dados recentemente acessados tendem a ser reutilizados em curto intervalo de tempo e localidade espacial onde os dados próximos em memória tendem a ser acessados em sequência.
 
-\lipsum[10] \cite{gridftp}
 
-\subsection{Foo}
+Algoritmos que exploram esses princípios apresentam melhor desempenho, pois reduzem a quantidade de falhas de cache e o número de acessos à memória principal.
 
-\begin{lstlisting}[language=C]
-#include<stdio.h>
-#include<iostream>
-    // A comment
-int main(void) {
-    printf("Hello World\n");
-    return 0;
-}
-\end{lstlisting}
+\section{Multiplicação de Matrizes}
 
-\begin{lstlisting}[language=Java]
-public class HelloWorld {
-   public static void main(String[] args) {
-      // Prints "Hello, World" in the terminal window.
-      System.out.println("Hello, World");
-   }
-}
-\end{lstlisting}
+A multiplicação de matrizes é uma operação fundamental na computação científica. Dadas duas matrizes quadradas $A$ e $B$ de dimensão $N \times N$, o resultado $C = A \times B$ é definido como:
 
-\begin{lstlisting}[language=Python]
-x = 1
-if x == 1:
-    # indented four spaces
-    print("x is 1.")
-\end{lstlisting}
+\begin{equation}
+C_{ij} = \sum_{k=0}^{N-1} A_{ik} \cdot B_{kj}
+\end{equation}
 
-\subsubsection{Bar}
+A implementação direta dessa operação possui complexidade computacional $O(N^3)$, sendo altamente custosa para grandes valores de $N$. Além disso, o padrão de acesso à memória, especialmente na matriz $B$, pode resultar em baixa localidade espacial, ocasionando elevado número de falhas de cache.
 
-\lipsum[11] \cite{fowler04:designDead}
+\section{DGEMM}
 
-\begin{table}[!htpb]
-\centering
-\caption{xxxx.}\label{tab:tab1}
-   \begin{tabular}{ | l | l | l | p{5cm} |}
-    \hline
-    Day & Min Temp & Max Temp & Summary \\ \hline
-    Monday & 11C & 22C & A clear day with lots of sunshine.  
-    However, the strong breeze will bring down the temperatures. \\ \hline
-    Tuesday & 9C & 19C & Cloudy with rain, across many northern regions. Clear spells 
-    across most of Scotland and Northern Ireland, 
-    but rain reaching the far northwest. \\ \hline
-    Wednesday & 10C & 21C & Rain will still linger for the morning. 
-    Conditions will improve by early afternoon and continue 
-    throughout the evening. \\
-    \hline
-    \end{tabular}
-\end{table}
+O DGEMM (\textit{Double Precision General Matrix Multiply}) é uma operação padronizada da biblioteca BLAS (\textit{Basic Linear Algebra Subprograms}), amplamente utilizada para multiplicação de matrizes em precisão dupla. Sua forma geral é dada por:
 
-\lipsum[12] \cite{FSF:GNU-GPL}
+\begin{equation}
+C = \alpha AB + \beta C
+\end{equation}
 
-\begin{table}[!htpb]
-\centering
-\caption{xxxx.}\label{tab:tab1}
-\begin{tabular}{l*{6}{c}r}
-Team              & P & W & D & L & F  & A & Pts \\
-\hline
-Manchester United & 6 & 4 & 0 & 2 & 10 & 5 & 12  \\
-Celtic            & 6 & 3 & 0 & 3 &  8 & 9 &  9  \\
-Benfica           & 6 & 2 & 1 & 3 &  7 & 8 &  7  \\
-FC Copenhagen     & 6 & 2 & 1 & 3 &  5 & 8 &  7  \\
-\end{tabular}
-\end{table}
+onde $\alpha$ e $\beta$ são escalares e $A$, $B$ e $C$ são matrizes. No contexto deste trabalho, considera-se $\alpha = 1$ e $\beta = 0$, reduzindo a operação à multiplicação de matrizes tradicional.
 
-\lipsum[13] \cite{eco:09}
+O DGEMM é amplamente utilizado como benchmark de desempenho em sistemas de alto desempenho (HPC), devido à sua alta intensidade computacional e sensibilidade ao comportamento da memória.
 
-\begin{table}[!htpb]
-\centering
-\caption{xxxx.}\label{tab:tab1}
-\begin{tabular}{ |l|l|l| }
-\hline
-\multicolumn{3}{ |c| }{Team sheet} \\
-\hline
-Goalkeeper & GK & Paul Robinson \\ \hline
-\multirow{4}{*}{Defenders} & LB & Lucas Radebe \\
- & DC & Michael Duburry \\
- & DC & Dominic Matteo \\
- & RB & Didier Domi \\ \hline
-\multirow{3}{*}{Midfielders} & MC & David Batty \\
- & MC & Eirik Bakke \\
- & MC & Jody Morris \\ \hline
-Forward & FW & Jamie McMaster \\ \hline
-\multirow{2}{*}{Strikers} & ST & Alan Smith \\
- & ST & Mark Viduka \\
-\hline
-\end{tabular}
-\end{table}
+\section{Técnica de Bloqueamento (Blocking)}
 
-\lipsum[14] \cite{zobel:04}
+A técnica de bloqueamento, também conhecida como \textit{tiling}, consiste em dividir as matrizes em submatrizes (blocos) menores, permitindo que esses blocos sejam carregados e reutilizados na cache.
 
-\chapter{Resultados}
+Em vez de operar diretamente sobre toda a matriz, o algoritmo percorre blocos de tamanho $BS \times BS$, conforme ilustrado:
 
-\lipsum[15] \cite{waz:09}
+\begin{equation}
+\text{Para } ii, jj, kk = 0, BS, 2BS, ..., N
+\end{equation}
 
-\begin{figure}[!htpb]
-\centering
-\caption{zzzzzzzz.}\label{fig:fig1}
-\begin{circuitikz}
-	\draw
-	% Drawing a npn transistor
-	(0,0) node[npn](npn1){} 
-	% Making connections from transistor using relative coordinates
-	(npn1.E) node[right=7mm, above=5mm]{2N2222} % Labelling the transistor
-	(npn1.B) -- ++(-1,0) to [R,l_=10<\kilo\ohm>,*-*] ++(0,-3)  
-	(npn1.B) -- ++(-3,0) to [C,l_=100<\nano\farad>] ++(0,-3) node(gnd1){}
-	(npn1.E) to [R,l_=10<\kilo\ohm>,*-*] (0,-3)
-	(npn1.E) -- ++(2,0) to [C,l=10<\pico\farad>,*-*] (2,-3)
-	(npn1.B) -- ++(-1,0) to [R,l_=10<\kilo\ohm>,*-] ++(0,3) node(con1){}
-	(npn1.C) to [L,l_=150<\micro\henry>,*-] (0,3) 
-	(npn1.C) -- ++(2,0) to [C,l=10<\pico\farad>,*-*] ++(0,-1.5)
-	% Drawing shorts and ground connection
-	(-1,3)to[short,*-o] (-1,4) node[right]{$V_{DD}=6 VDC$} % Power supply
-	% Output sinusoidal waveform at approximately 50 MHz
-	(npn1.C) -- ++(4,0) to [short,-o]
-	  ++(0,0) node[right]{$V_o (\approx \SI{50}{\MHz})$}
-	(0,-3) node[ground]{}% Define this node as ground
-	(gnd1) ++(0,0) to[short,-o] ++(7.85,0)
-        (con1)to[short] ++(1.85,0)
-	;
-\end{circuitikz}
-\end{figure}
+Essa abordagem melhora significativamente a localidade de memória, pois os dados utilizados permanecem na cache durante múltiplas operações. Como consequência, há redução no número de falhas de cache e aumento no desempenho geral do algoritmo.
 
-\lipsum[16] \cite{Higham:98}
+A escolha do tamanho do bloco ($BS$) é um fator crítico, pois deve estar alinhada com o tamanho da cache do sistema. Blocos muito grandes podem não caber na cache, enquanto blocos muito pequenos aumentam o overhead de controle do algoritmo.
 
-\begin{figure}[!htpb]
-\centering
-\caption{zzzzzzzz.}\label{fig:fig1}
-\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
-  thick,main node/.style={circle,fill=blue!20,draw,
-  font=\sffamily\Large\bfseries,minimum size=15mm}]
+\section{Convolução de Matrizes}
 
-  \node[main node] (M) {M};
-  \node[main node] (E) [below of=M] {E};
-  \node[main node] (S) [below of=E] {S};
-  \node[main node] (F) [below of=S] {F};
-  \node[main node] (I) [below of=F] {I};
+A convolução de matrizes é uma operação amplamente utilizada em processamento de imagens e redes neurais convolucionais. Dada uma matriz de entrada e um kernel de dimensão $K \times K$, a saída é obtida pela aplicação do kernel sobre regiões locais da matriz:
 
-  \path[every node/.style={font=\sffamily\small,
-  		fill=white,inner sep=1pt}]
-  	% Right-hand-side arrows rendered from top to bottom to
-  	% achieve proper rendering of labels over arrows.
-    (M) edge [loop above] node {PrRd/-, PrWr/-} (M)
-        edge [bend left=60] node[right=1mm] {BusRdX/Flush} (I)
-        edge [bend left=40] node[right=1mm] {BusRd/Flush} (S)
-    (E) edge [loop above] node {PrRd/-} (E)
-        edge [bend left=50] node[right=1mm] {BusRdX/Flush} (I)
-        edge [bend left=30] node[right=1mm] {BusRd/Flush} (S)
-    (S) edge [loop above] node {PrRd/-} (S)
-        edge [loop right] node[right=1mm]  {BusRd/-} (S)
-        edge [bend left=40] node[right=1mm] {BusRdX/Flush} (I)
-    (F) edge [bend left=30] node[right=1mm] {BusRdX/Flush} (I)
-        
-  	% Left-hand-side arrows rendered from bottom to top to
-  	% achieve proper rendering of labels over arrows.
-    (I) edge [bend left=65] node[left=1mm] {PrWr/BusRdX} (M)
-        edge [bend left=55] node[left=1mm] {PrRd/BusRd Ex} (E)
-        edge [bend left=30] node[left=1mm] {PrRd/BusRd} (F)
-    (F) edge [loop above] node {PrRd/-} (F)
-        edge [bend left=50] node[left=1mm] {PrWr/BusRdX} (M)
-        edge [bend left=30] node[left=1mm] {BusRd/Flush} (S)
-    (S) edge [bend left=40] node[left=1mm] {PrWr/BusRdX} (M)
-    (E) edge [bend left=30] node[left=1mm] {PrWr/-} (M);
-\end{tikzpicture}
-\end{figure}
+\begin{equation}
+saida(i,j) = \sum_{u=0}^{K-1} \sum_{v=0}^{K-1} mat(i+u,j+v) \cdot ker(u,v)
+\end{equation}
 
-\lipsum[17] \cite{Knuth:96}
+Essa operação possui custo computacional elevado e apresenta padrões de acesso à memória que podem impactar o desempenho, especialmente em implementações não otimizadas.
 
-\begin{figure}[!htpb]
-\centering
-\caption{zzzzzzzz.}\label{fig:fig1}
-\begin{tikzpicture}
-    \begin{scope}[thick,font=\scriptsize]
-    % Axes:
-    % Are simply drawn using line with the `->` option to make them arrows:
-    % The main labels of the axes can be places using `node`s:
-    \draw [->] (-5,0) -- (5,0) node [above left]  {$\Re\{z\}$};
-    \draw [->] (0,-5) -- (0,5) node [below right] {$\Im\{z\}$};
+\section{Computação Aproximada}
 
-    % Axes labels:
-    % Are drawn using small lines and labeled with `node`s. The placement can be set using options
-    \iffalse% Single
-    % If you only want a single label per axis side:
-    \draw (1,-3pt) -- (1,3pt)   node [above] {$1$};
-    \draw (-1,-3pt) -- (-1,3pt) node [above] {$-1$};
-    \draw (-3pt,1) -- (3pt,1)   node [right] {$i$};
-    \draw (-3pt,-1) -- (3pt,-1) node [right] {$-i$};
-    \else% Multiple
-    % If you want labels at every unit step:
-    \foreach \n in {-4,...,-1,1,2,...,4}{%
-        \draw (\n,-3pt) -- (\n,3pt)   node [above] {$\n$};
-        \draw (-3pt,\n) -- (3pt,\n)   node [right] {$\n i$};
-    }
-    \fi
-    \end{scope}
-    % The circle is drawn with `(x,y) circle (radius)`
-    % You can draw the outer border and fill the inner area differently.
-    % Here I use gray, semitransparent filling to not cover the axes below the circle
-    \path [draw=none,fill=gray,semitransparent] (+1,-1) circle (3);
-    % Place the equation into the circle:
-    \node [below right,darkgray] at (+1,-1) {$|z-1+i| \leq 3$};
-\end{tikzpicture}
-\end{figure}
+A computação aproximada é uma abordagem que visa reduzir o custo computacional por meio da relaxação da precisão dos cálculos. Essa técnica é particularmente útil em aplicações tolerantes a erros, como processamento de imagens e aprendizado de máquina.
+
+Entre as estratégias utilizadas destacam-se:
+
+\begin{itemize}
+    \item Redução da precisão numérica (por exemplo, uso de \textit{float} em vez de \textit{double});
+    \item Truncamento de operações;
+    \item Simplificação de cálculos.
+\end{itemize}
+
+O principal objetivo é explorar o trade-off entre desempenho e precisão, permitindo ganhos de eficiência com impacto controlado na qualidade dos resultados.
+
+\section{Trabalhos Relacionados}
+
+em breve
+% Nesse ponto do texto, você pode explicar os 5 artigo que você selecionou sobre a literatura. (não esquece de colocar a string de busca e falar qual a base de dados você usou)
+% Além disso, imagine que o leitor não sabe nada sobre o assunto, então você vai explicar:
+
+% O que é um somador? (exemplo)
+
+% O que é um multiplicador? (exemplo)
+
+% O que é computação approximada? (exemplo)
+
+% O que é FPGA? (exemplo)
+
+% Como o seu trabalho está relacionado com os 5 que você explicou? (exemplo)
+
+
+\chapter{Materiais, métodos e resultados esperados}
+% Aqui você vai explicar como você vai fazer seu trabalho, por exemplo, mostrar:
+
+% As métricas de erro que você vai usar
+% Os softwares e linguagem que você vai usar
+% Qual modelo de FPGA você vai usar
+% Como você vai capturar os resultados (simulação ou leitura da placa)
+% Como você vai testar a hipótese. Aqui você pode descrever e usar os testes de hipótese clássicos, como: regressão linear, ANOVA e t-test.
+
+\chapter{Considerações finais e cronograma de trabalho}
+% Aqui é só recaptular tudo que foi dito e fazer um cronograma do que ainda falta ser feito.
+
+% Minha sugestão é explicar de maneira clara o que ainda será feito e criar um cronograma para o TCC2.
 
 \backmatter 
 \singlespacing   
 % ----------------------------------------------------------------------------------------------------- %
 \bibliography{tcc_exemplo}
 
-\appendix
-\onehalfspacing
-
-\chapter{Sequências}
-\label{ape:sequencias}
-
-\lipsum[7]
-
-\lipsum[17] \cite{Knuth:96}
-
-\begin{figure}[!htpb]
-\centering
-\caption{zzzzzzzz.}\label{fig:fig1}
-\begin{tikzpicture}
-    \begin{scope}[thick,font=\scriptsize]
-    % Axes:
-    % Are simply drawn using line with the `->` option to make them arrows:
-    % The main labels of the axes can be places using `node`s:
-    \draw [->] (-5,0) -- (5,0) node [above left]  {$\Re\{z\}$};
-    \draw [->] (0,-5) -- (0,5) node [below right] {$\Im\{z\}$};
-
-    % Axes labels:
-    % Are drawn using small lines and labeled with `node`s. The placement can be set using options
-    \iffalse% Single
-    % If you only want a single label per axis side:
-    \draw (1,-3pt) -- (1,3pt)   node [above] {$1$};
-    \draw (-1,-3pt) -- (-1,3pt) node [above] {$-1$};
-    \draw (-3pt,1) -- (3pt,1)   node [right] {$i$};
-    \draw (-3pt,-1) -- (3pt,-1) node [right] {$-i$};
-    \else% Multiple
-    % If you want labels at every unit step:
-    \foreach \n in {-4,...,-1,1,2,...,4}{%
-        \draw (\n,-3pt) -- (\n,3pt)   node [above] {$\n$};
-        \draw (-3pt,\n) -- (3pt,\n)   node [right] {$\n i$};
-    }
-    \fi
-    \end{scope}
-    % The circle is drawn with `(x,y) circle (radius)`
-    % You can draw the outer border and fill the inner area differently.
-    % Here I use gray, semitransparent filling to not cover the axes below the circle
-    \path [draw=none,fill=gray,semitransparent] (+1,-1) circle (3);
-    % Place the equation into the circle:
-    \node [below right,darkgray] at (+1,-1) {$|z-1+i| \leq 3$};
-\end{tikzpicture}
-\end{figure}
-
-\lipsum[15] \cite{waz:09}
-
-\begin{figure}[!htpb]
-\centering
-\caption{zzzzzzzz.}\label{fig:fig1}
-\begin{circuitikz}
-	\draw
-	% Drawing a npn transistor
-	(0,0) node[npn](npn1){} 
-	% Making connections from transistor using relative coordinates
-	(npn1.E) node[right=7mm, above=5mm]{2N2222} % Labelling the transistor
-	(npn1.B) -- ++(-1,0) to [R,l_=10<\kilo\ohm>,*-*] ++(0,-3)  
-	(npn1.B) -- ++(-3,0) to [C,l_=100<\nano\farad>] ++(0,-3) node(gnd1){}
-	(npn1.E) to [R,l_=10<\kilo\ohm>,*-*] (0,-3)
-	(npn1.E) -- ++(2,0) to [C,l=10<\pico\farad>,*-*] (2,-3)
-	(npn1.B) -- ++(-1,0) to [R,l_=10<\kilo\ohm>,*-] ++(0,3) node(con1){}
-	(npn1.C) to [L,l_=150<\micro\henry>,*-] (0,3) 
-	(npn1.C) -- ++(2,0) to [C,l=10<\pico\farad>,*-*] ++(0,-1.5)
-	% Drawing shorts and ground connection
-	(-1,3)to[short,*-o] (-1,4) node[right]{$V_{DD}=6 VDC$} % Power supply
-	% Output sinusoidal waveform at approximately 50 MHz
-	(npn1.C) -- ++(4,0) to [short,-o]
-	  ++(0,0) node[right]{$V_o (\approx \SI{50}{\MHz})$}
-	(0,-3) node[ground]{}% Define this node as ground
-	(gnd1) ++(0,0) to[short,-o] ++(7.85,0)
-        (con1)to[short] ++(1.85,0)
-	;
-\end{circuitikz}
-\end{figure}
+% \appendix
+% \onehalfspacing
 
 \end{document}
