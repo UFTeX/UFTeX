@@ -2,8 +2,8 @@
 %  X.0.0 - novas funções
 %  0.X.0 - melhorias e / ou evoluções
 %  0.0.X - correção de bugs
-\def\fileversion{v2.3.0}
-\def\filedate{2025/10/04}
+\def\fileversion{v2.3.1}
+\def\filedate{2026/05/28}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass {uftex} %[\filedate\ \fileversion\ Classe personalizada para o curso de Ci\^encia da Computa\c{c}\~ao da UFT - CUP]
 
@@ -24,10 +24,6 @@
 \RequirePackage[english,brazil]{babel}
 % --------------- Codificação do arquivo
 \RequirePackage[utf8]{inputenc}
-% --------------- Inclusão de arquivos em PDF no documento
-\RequirePackage{pdfpages}
-% --------------- Utilização da marca d'agua
-\RequirePackage{wallpaper}  
 % --------------- Usamos arquivos pdf/png como figuras
 \RequirePackage{graphicx}
 % --------------- Somar total de folhas
@@ -39,20 +35,11 @@
 \RequirePackage{indentfirst}
 % --------------- Acrescentamos a bibliografia/indice/conteudo no Table of Contents
 \RequirePackage[nottoc, notlof,notlot]{tocbibind}
-% --------------- Multiplas colunas e linhas em tabelas
-\RequirePackage{multirow}
-% --------------- Rotação e objeto flutuante, como figuras e tabelas
-\RequirePackage{rotating}
-% --------------- Referenciar o número de páginas no documento
-\RequirePackage{lastpage}
-% --------------- Fornece comandos extras para melhorar a qualidade das tabelas
-\RequirePackage{booktabs}
 
-\RequirePackage{lmodern}
+% --------------- Fonte Times New Roman (conforme Manual UFT 2022, seção 2.1)
+\RequirePackage{mathptmx}
 % --------------- Utilização de subfiguras
 \RequirePackage{subfigure}
-% --------------- Rotação e reposicionamento de figuras
-\RequirePackage{wrapfig}
 % --------------- Utilização das mais variadas fórmulas matemáticas
 \RequirePackage{amsfonts,amsthm,amsopn,amssymb,latexsym}
 % --------------- Para utilização e formatação de código fonte em diversas linguagens
@@ -91,9 +78,6 @@ xrightmargin=10pt
 \RequirePackage{ifthen}
 % --------------- Este pacote pode desativar toda a hifenização ou ativar a hifenização de fontes não-alfabéticos ou monoespaçadas.
 \RequirePackage{hyphenat}
-% --------------- Utilizado para construir a capa e folha de rosto
-\RequirePackage{tabularx}
-\RequirePackage{xstring}
 
 % --------------- Estilização dos rótulos de capítulos e seções
 
@@ -125,8 +109,17 @@ xrightmargin=10pt
 {\normalsize}{\thesubsection}{1em}{}
 \titleformat{\subsubsection}
 {\normalsize}{\thesubsubsection}{1em}{}
+% Secao quaternaria: minusculo italico (Manual UFT 2022, sec. 4)
+\titleformat{\paragraph}
+{\normalsize\itshape}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1em}
+% Secao quinaria: minusculo sublinhado (Manual UFT 2022, sec. 4)
+\titleformat{\subparagraph}
+{\normalsize\underline}{\thesubparagraph}{1em}{}
+\titlespacing*{\subparagraph}{\parindent}{3.25ex plus 1ex minus .2ex}{1em}
 
-\setcounter{secnumdepth}{3}
+% Habilita numeracao ate o 5. nivel (quinaria)
+\setcounter{secnumdepth}{5}
 
 % Defining how is typeset the \chapter
 \def\@makechapterhead#1{%
@@ -204,7 +197,7 @@ xrightmargin=10pt
 
 
 % --------------- Formatação das captions de figuras e tabelas
-\RequirePackage[labelfont=bf,textfont=bf,labelsep=endash, singlelinecheck=false,justification=centering]{caption}
+\RequirePackage[labelsep=endash,singlelinecheck=false,justification=centering]{caption}
 % ------------------------------------------------------------------------------------------------------ %
 % --------------- Redefinição de comandos e criação de comandos básicos para documento
 % ------------------------------------------------------------------------------------------------------ %
@@ -213,7 +206,7 @@ xrightmargin=10pt
                         \leftmargin=4cm%  whatever you need
                         \topsep=10pt%%%%%  whatever you need
                         \parsep        \z@ \@plus\p@}%
-                        \item\relax\small\ignorespaces}
+                        \item\relax\fontsize{10pt}{12pt}\selectfont\setstretch{1.0}\ignorespaces}
                {\endlist}
 % ------------------------------------------------------------------------------------------------------ %
 \DeclareOption{tcc}{%
@@ -462,62 +455,8 @@ xrightmargin=10pt
      \end{center}
 }
 % ------------------------------------------------------------------------------------------------------ %
-\newcommand\makecatalog{%
-
-\expandafter\StrLeft\expandafter{\@authsurn}{1}[\firstletterauthor]
-\expandafter\StrLeft\expandafter{\local@title}{1}[\firstlettertitle]
-
-  \vspace*{\fill}
-  \begin{center}
-  {\small
-    \setlength{\fboxsep}{3mm}
-      \begin{minipage}{135mm}
-      {\bf\centering Dados Internacionais de Catalogação na Publicação (CIP) \par
-      Sistema de Bibliotecas da \local@universityname \par}
-       \noindent\makebox[\linewidth]{\rule{\textwidth}{1pt}}
-       {\footnotesize
-       \begin{tabularx}{135mm}[b]{@{}l@{ }>{\raggedright\arraybackslash}X@{}} \MakeUppercase{\firstletterauthor}447\MakeLowercase{\firstlettertitle} \ \ \ \ & 
-      \setlength{\parindent}{6mm}
-      \noindent\sloppy\nohyphens\@authsurn,
-      \nohyphens\@authname\par
-      \nohyphens{\local@title/\@authname\ \@authsurn. -- \local@cityname, TO, \number\year.}\par
-       \ztotpages\ f.\@ifundefined{r@cat:lofflag}{}{\pageref{cat:lofflag}}\par\ \par
-      % There is an issue here. When the last entry must be split between lines,
-      % the spacing between it and the next paragraph becomes smaller.
-      % Should we manually introduce a fixed space? But how could we know that
-      % a name was split? Is this happening yet?
-      \nohyphens{Monografia Graduação -- \local@universityname\ -- Campus Universitário de \local@cityname\ -- Curso de \local@deptname, \number\year.}\par
-      
-      \nohyphens{%
-      \begin{tabularx}{100mm}[b]{@{ }>{\raggedright\arraybackslash}X@{}}
-       \count1=0
-    %\toks@={}
-    \@whilenum \count1<\@advisor \do{%
-    \ifcase\count1 % same as \ifnum0=\count1
-        \local@advisorstring: \csname uftAdvisorDegree:\the\count1 \endcsname \ 
-        \csname uftAdvisorName:\the\count1 \endcsname \ 
-        \csname uftAdvisorSurname:\the\count1 \endcsname \ \par
-    \else
-        \local@coadvisorstring: \csname uftAdvisorDegree:\the\count1 \endcsname \ 
-        \csname uftAdvisorName:\the\count1 \endcsname \ 
-        \csname uftAdvisorSurname:\the\count1 \endcsname \ \par
-    \fi
-    \advance\count1 by 1}
-      \end{tabularx}}\par\ \par
-      
-      \count1=0
-      \count2=1
-      \nohyphens{\@whilenum \count1<\value{keywords} \do {%
-        \number\count2. \csname uftKeyword:\the\count1 \endcsname.
-        \advance\count1 by 1
-        \advance\count2 by 1} I. T{\' i}tulo.} \par
-        \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\bf CDD 4}
-        \end{tabularx}
-        \noindent\makebox[\linewidth]{\rule{\textwidth}{1pt}}
-        \noindent\sloppy\nohyphens{TODOS OS DIREITOS RESERVADOS -- A reprodução total ou parcial, de qualquer forma ou por qualquer meio deste documento é autorizado desde que citada a fonte. A violação dos direitos do autor (Lei nº 9.610/98) é crime estabelecido pelo artigo 184 do Código Penal.}}
-    \end{minipage}}
-  \end{center}
-  }%\vspace*{\fill}}
+% \makecatalog removido: a ficha catalografica deve ser gerada pelo sistema
+% eletronico da UFT (https://sistemas.uft.edu.br/ficha/) e inserida como PDF.
 
     
 % ------------------------------------------------------------------------------------------------------ %
@@ -572,24 +511,28 @@ xrightmargin=10pt
       \end{minipage}
     \end{flushright}}
 % ------------------------------------------------------------------------------------------------------ %
+% Resumo: recuo 1,25 cm, espacamento simples conforme Manual UFT 2022, sec. 5.9
 \newenvironment{abstract}{%
 \cleardoublepage
 \thispagestyle{empty}
 \chapter*{Resumo}
-\setlength{\parindent}{0pt}
+\setlength{\parindent}{1.25cm}
+\setstretch{1.0}%
 }{\vspace{.5cm}
 
 \count1=0
-\noindent\nohyphens{{\bfseries Palavra-chave}: \@whilenum \count1<\value{keywords} \do {%
+\noindent\nohyphens{{\bfseries Palavras-chave}: \@whilenum \count1<\value{keywords} \do {%
         \csname uftKeyword:\the\count1 \endcsname.
         \advance\count1 by 1
         \advance\count2 by 1}}\par}
 % ------------------------------------------------------------------------------------------------------ %
+% Abstract: recuo 1,25 cm, espacamento simples conforme Manual UFT 2022, sec. 5.10
 \newenvironment{foreignabstract}{%
 \cleardoublepage
 \thispagestyle{empty}
 \chapter*{Abstract}
-\setlength{\parindent}{0pt}
+\setlength{\parindent}{1.25cm}
+\setstretch{1.0}%
 }{\vspace{.5cm}
 
 \noindent\nohyphens{{\bfseries Keywords}: 
@@ -742,7 +685,7 @@ xrightmargin=10pt
 % ------------------------------------------------------------------------------------------------------ %
 \newcommand\frontpage@bottomtext{%
   \begin{center}
-  {\MakeUppercase{\local@cityname\ (\local@statename )}}\par
+  {\local@cityname , \local@statename}\par
   {\number\year}
   \end{center}%
 }
@@ -756,96 +699,6 @@ xrightmargin=10pt
 \renewcommand{\baselinestretch}{1.5}
 \setlength{\parindent}{1.25cm}
 
-% ------------------------------------------------------------------------------------------------------ %
-% Inicio Pré-Projeto
-% ------------------------------------------------------------------------------------------------------ %
-\DeclareOption{project}{
-\setlength{\parindent}{0cm}
-\renewcommand{\baselinestretch}{1.0}
-
-\renewenvironment{abstract}{%
-\section*{RESUMO}
-}{\vspace{0.cm}}
-
-\titleformat{\section}
-{\normalsize\bfseries}{\thesection}{1em}{\uppercase}
-
-\renewenvironment{thebibliography}[1]
-     {\section*{\bibname}% <-- this line was changed from \chapter* to \section*
-      \list{\@biblabel{\@arabic\c@enumiv}}%
-           {\settowidth\labelwidth{\@biblabel{#1}}%
-            \leftmargin\labelwidth
-            \advance\leftmargin\labelsep
-            \@openbib@code
-            \usecounter{enumiv}%
-            \let\p@enumiv\@empty
-            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-      \sloppy
-      \clubpenalty4000
-      \@clubpenalty \clubpenalty
-      \widowpenalty4000%
-      \sfcode`\.\@m}
-     {\def\@noitemerr
-       {\@latex@warning{Empty `thebibliography' environment}}%
-      \endlist}
-
-% ------------------------------------------------------------------------------------------------------ %
-\renewcommand\maketitle{%
-\ltx@ifpackageloaded{hyperref}{\uftex@hypersetup}{}%
-\begin{minipage}{0.2\textwidth}% adapt widths of minipages to your needs
-\includegraphics[width=.8\linewidth]{../classe_uftex/logouft}
-\end{minipage}%
-\hfill%
-\begin{minipage}{0.8\textwidth}\raggedright
-\MakeUppercase\frontcover@maintext
-\end{minipage}
-  
- \begin{center}
-  \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
-  \vspace{2mm}
-  \nohyphens{\large\MakeUppercase\@projecttype} \par
-  \nohyphens{\local@title}\par
-  \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
-  \local@cityname\par
-  \local@monthname\ de \number\year
-  \end{center}
-
-  \textbf{Identificação} \par
-  \nohyphens{{\bf Aluno}: \@authname\ \@authsurn}\par
-  \count1=0
-  \count2=0
-  \nohyphens{{\bfseries Área de Pesquisa}: \@whilenum \count1<\@fields \do {%
-        \count2=\count1
-        \advance\count2 by 1
-        \ifnum\count2=\@fields\relax
-           \csname uftfields:\the\count1 \endcsname 
-        \else 
-           \csname uftfields:\the\count1 \endcsname \ / \fi
-        \advance\count1 by 1}}\par 
-  \count1=0
-  \nohyphens{{\bfseries Palavra-chave}: \@whilenum \count1<\value{keywords} \do {%
-        \csname uftKeyword:\the\count1 \endcsname.
-        \advance\count1 by 1}}\par 
-  
-  \nohyphens{%
-    \count1=0
-    \@whilenum \count1<\@advisor \do{%
-    \ifcase\count1 % same as \ifnum0=\count1
-        {\bf\local@advisorstring}: \csname uftAdvisorDegree:\the\count1 \endcsname \ 
-        \csname uftAdvisorName:\the\count1 \endcsname \ 
-        \csname uftAdvisorSurname:\the\count1 \endcsname \ \par
-    \else
-        {\bf\local@coadvisorstring}: \csname uftAdvisorDegree:\the\count1 \endcsname \ 
-        \csname uftAdvisorName:\the\count1 \endcsname \ 
-        \csname uftAdvisorSurname:\the\count1 \endcsname \ \par
-    \fi
-    \advance\count1 by 1}
-  } \par
-}
-}
-% ------------------------------------------------------------------------------------------------------ %
-% Fim Pré-Projeto
-% ------------------------------------------------------------------------------------------------------ %
 
 
 % ------------------------------------------------------------------------------------------------------ %
